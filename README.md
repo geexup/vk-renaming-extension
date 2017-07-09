@@ -1,0 +1,1 @@
+vk-renaming-extension
