@@ -1,0 +1,33 @@
+{
+  "name": "vk-renaming-extension",
+  "version": "1.0.0",
+  "description": "vk-renaming-extension",
+  "main": "webpack.config.babel.js",
+  "scripts": {
+    "build": "webpack --config ./webpack.config.babel.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geexup/vk-renaming-extension.git"
+  },
+  "keywords": [
+    "vk",
+    "chrome"
+  ],
+  "author": "@geexup",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geexup/vk-renaming-extension/issues"
+  },
+  "homepage": "https://github.com/geexup/vk-renaming-extension#readme",
+  "devDependencies": {
+    "babel-cli": "6.24.1",
+    "babel-core": "6.25.0",
+    "babel-loader": "7.1.1",
+    "babel-preset-es2015": "6.24.1",
+    "clean-webpack-plugin": "0.1.16",
+    "copy-webpack-plugin": "4.0.1",
+    "webpack": "2.6.1"
+  },
+  "dependencies": {}
+}

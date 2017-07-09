@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Vk Renaming Extension",
+  "description": "",
+  "version": "1.0",
+  "options_page": "static/options.html",
+  "browser_action": {
+    "default_icon": "static/icon.png",
+    "default_popup": "static/popup.html"
+  },
+  "background": {
+    "scripts": [ "js/bg.js" ]
+  },
+  "content_scripts": [
+    { "matches": [ "https://vk.com/*" ], "js": [ "js/main.js" ]}
+  ],
+  "permissions": [
+    "tabs", "https://vk.com/*", "storage"
+  ]
+}
