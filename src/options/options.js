@@ -45,6 +45,10 @@ class OptionsPage {
     this.listElement.innerHTML = listHtml;
     this.addListElement.innerHTML = addListHtml;
 
+    Array.from(this.listElement.querySelectorAll('.user')).forEach((element, index) => { 
+      element.addEventListener('click', () => this.edit(index));
+    });
+
     console.log('[Rename] Re-rendered');
   }
 
@@ -78,6 +82,14 @@ class OptionsPage {
     this.render();
   }
 
+  edit(index) {
+    const rename = this.renameList[index];
+    const newRename = prompt('New name?', rename.value);
+    this.renameList[index].value = newRename;
+    localStorage.setItem('RENAMES_OBJECT', JSON.stringify(this.makeObjectFromList(this.renameList)));
+    this.render();
+  }
+
   save() {
     this.bindHtmlAddListToObj();
     const usedRenames = Object.keys(this.makeObjectFromList(this.renameList));
@@ -90,7 +102,7 @@ class OptionsPage {
 
     this.addList = [];
 
-    localStorage.setItem('RENAMES_OBJECT', JSON.stringify(this.makeObjectFromList(this.renameList)))
+    localStorage.setItem('RENAMES_OBJECT', JSON.stringify(this.makeObjectFromList(this.renameList)));
     this.render();
   }
 }

@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Vk Renaming Extension",
   "description": "",
-  "version": "1.0",
+  "version": "1.0.1",
   "options_page": "static/options.html",
   "browser_action": {
     "default_icon": "static/icon.png",
