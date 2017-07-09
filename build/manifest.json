@@ -8,10 +8,13 @@
     "default_icon": "static/icon.png",
     "default_popup": "static/popup.html"
   },
+  "background": {
+    "scripts": [ "js/bg.js" ]
+  },
   "content_scripts": [
     { "matches": [ "https://vk.com/*" ], "js": [ "js/main.js" ]}
   ],
   "permissions": [
-    "tabs", "https://vk.com/*"
+    "tabs", "https://vk.com/*", "storage"
   ]
 }

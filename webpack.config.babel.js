@@ -10,7 +10,8 @@ const filename = '[name].js';
 const libraryName = 'VkRnmExt';
 const entry = {
   main: path.join(__dirname, 'src', 'main', 'app.js'),
-  options: path.join(__dirname, 'src', 'options', 'options.js')
+  options: path.join(__dirname, 'src', 'options', 'options.js'),
+  bg: path.join(__dirname, 'src', 'bg', 'bg.js')
 };
 const WebpackPath = path.join(__dirname, 'build','js');
 const loaders = [];
