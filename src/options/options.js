@@ -111,7 +111,7 @@ class OptionsPage {
     const usedRenames = Object.keys(this.makeObjectFromList(this.renameList));
     
     for (const user of this.addList) {
-      user.key = user.key.replace(/\//, '').toLowerCase();
+      user.key = user.key.split('/').filter((e, i, o) => i + 1 === o.length)[0].toLowerCase();
 
       if (user.key.length > 0 && user.value.length > 0 && !usedRenames.includes(user.key)) this.renameList.push(Object.assign({}, user));
     }
