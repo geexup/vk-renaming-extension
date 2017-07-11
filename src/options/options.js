@@ -29,7 +29,7 @@ class OptionsPage {
   }
 
   render() {
-    const userTemplate = (userId, rename) => `<div class="user"><span class="userId">${userId}</span><span class="rename">${rename}</span></div>`;
+    const userTemplate = (userId, rename) => `<div class="user"><span class="userId">${userId}</span><span class="rename">${rename}</span><div class="delete">Delete</div></div>`;
     const addingTemplate = (userId, rename) => `<div class="user"><input name="userId" class="userId" value="${userId}" placeholder="user id"></input><input name="rename" class="rename" value="${rename}" placeholder="new name"></input></div>`;
 
     let listHtml = '';
@@ -44,6 +44,23 @@ class OptionsPage {
 
     this.listElement.innerHTML = listHtml;
     this.addListElement.innerHTML = addListHtml;
+
+    Array.from(this.listElement.querySelectorAll('.user')).forEach((element, index) => { 
+      element.addEventListener('click', () => this.edit(index));
+    });
+
+    Array.from(this.listElement.querySelectorAll('.user .delete')).forEach((element, index) => {
+      element.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        if (!confirm(`Delete '${this.renameList[index].key}' -> '${this.renameList[index].value}'?`)) return;
+
+        this.renameList.splice(index, 1);
+
+        localStorage.setItem('RENAMES_OBJECT', JSON.stringify(this.makeObjectFromList(this.renameList)));
+        this.render();
+      });
+    });
 
     console.log('[Rename] Re-rendered');
   }
@@ -78,6 +95,17 @@ class OptionsPage {
     this.render();
   }
 
+  edit(index) {
+    const rename = this.renameList[index];
+    const newRename = prompt('New name?', rename.value);
+
+    if (newRename === null) return;
+
+    this.renameList[index].value = newRename;
+    localStorage.setItem('RENAMES_OBJECT', JSON.stringify(this.makeObjectFromList(this.renameList)));
+    this.render();
+  }
+
   save() {
     this.bindHtmlAddListToObj();
     const usedRenames = Object.keys(this.makeObjectFromList(this.renameList));
@@ -90,7 +118,7 @@ class OptionsPage {
 
     this.addList = [];
 
-    localStorage.setItem('RENAMES_OBJECT', JSON.stringify(this.makeObjectFromList(this.renameList)))
+    localStorage.setItem('RENAMES_OBJECT', JSON.stringify(this.makeObjectFromList(this.renameList)));
     this.render();
   }
 }
