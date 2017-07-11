@@ -1,6 +1,6 @@
 {
   "name": "vk-renaming-extension",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "vk-renaming-extension",
   "main": "webpack.config.babel.js",
   "scripts": {
