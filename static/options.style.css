@@ -30,6 +30,14 @@ body {
     display: flex;
 }
 
+.user .delete {
+  height: 21px;
+  line-height: 21px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #ea5555;
+}
+
 .user .userId, .user .rename {
     width: 50%;
     font-size: 18px;
