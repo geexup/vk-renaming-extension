@@ -15,6 +15,7 @@ function makeRename() {
   const dialogueNames = Array.from(document.querySelectorAll('.im-mess-stack--lnk:not(.renamed)'));
   const friendListNames = Array.from(document.querySelectorAll('.friends_field_title > a:not(.renamed)'));
   const updatesNames = Array.from(document.querySelectorAll('.post_author > a.author:not(.renamed)'));
+        updatesNames.push(...Array.from(document.querySelectorAll('.feedback_header > a.author:not(.renamed)')));  
         updatesNames.push(...Array.from(document.querySelectorAll('a.mem_link:not(.renamed)')));
   
   const replyNames = Array.from(document.querySelectorAll('.reply_author > a.author:not(.renamed)'));
